@@ -51,8 +51,8 @@ export default function Projects() {
             {projects.map((project) => (
               <div key={project.id} className="bg-white rounded-2xl overflow-hidden shadow-xl shadow-gray-200/50 border border-gray-100 group">
                 <div className="relative aspect-[4/3] overflow-hidden">
-                  <img 
-                    src={project.imageUrl || "/src/assets/images/project-res-1.png"} 
+                  <img
+                    src={project.imageUrl || "/hero-solar.jpg"}
                     alt={project.title}
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                   />

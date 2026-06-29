@@ -13,13 +13,14 @@ tags:
     description: Contact and inquiry operations
   - name: projects
     description: Solar project showcase
+  - name: feedback
+    description: Customer feedback
 paths:
   /healthz:
     get:
       operationId: healthCheck
       tags: [health]
       summary: Health check
-      description: Returns server health status
       responses:
         "200":
           description: Healthy
@@ -63,6 +64,40 @@ paths:
                 type: array
                 items:
                   $ref: "#/components/schemas/Project"
+
+  /feedback:
+    get:
+      operationId: getFeedback
+      tags: [feedback]
+      summary: Get all approved customer feedback
+      responses:
+        "200":
+          description: List of feedback entries
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/FeedbackItem"
+    post:
+      operationId: submitFeedback
+      tags: [feedback]
+      summary: Submit customer feedback
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/FeedbackInput"
+      responses:
+        "201":
+          description: Feedback submitted
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/FeedbackItem"
+        "400":
+          description: Validation error
 
 components:
   schemas:
@@ -126,3 +161,37 @@ components:
           type: ["string", "null"]
         imageUrl:
           type: ["string", "null"]
+
+    FeedbackInput:
+      type: object
+      required: [name, rating, message]
+      properties:
+        name:
+          type: string
+          minLength: 1
+        location:
+          type: ["string", "null"]
+        rating:
+          type: integer
+          minimum: 1
+          maximum: 5
+        message:
+          type: string
+          minLength: 1
+
+    FeedbackItem:
+      type: object
+      required: [id, name, rating, message, createdAt]
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        location:
+          type: ["string", "null"]
+        rating:
+          type: integer
+        message:
+          type: string
+        createdAt:
+          type: string

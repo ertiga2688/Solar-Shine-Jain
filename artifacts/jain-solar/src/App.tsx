@@ -11,6 +11,7 @@ import Projects from "@/pages/Projects";
 import Subsidy from "@/pages/Subsidy";
 import Faq from "@/pages/Faq";
 import Contact from "@/pages/Contact";
+import FeedbackPage from "@/pages/Feedback";
 import NotFound from "@/pages/not-found";
 
 import Navbar from "@/components/layout/Navbar";
@@ -32,6 +33,7 @@ function Router() {
           <Route path="/subsidy" component={Subsidy} />
           <Route path="/faq" component={Faq} />
           <Route path="/contact" component={Contact} />
+          <Route path="/feedback" component={FeedbackPage} />
           <Route component={NotFound} />
         </Switch>
       </main>

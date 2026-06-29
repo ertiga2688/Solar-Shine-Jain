@@ -9,7 +9,6 @@ import * as zod from 'zod';
 
 
 /**
- * Returns server health status
  * @summary Health check
  */
 export const HealthCheckResponse = zod.object({
@@ -56,5 +55,45 @@ export const GetProjectsResponseItem = zod.object({
   "imageUrl": zod.string().nullish()
 })
 export const GetProjectsResponse = zod.array(GetProjectsResponseItem)
+
+
+/**
+ * @summary Get all approved customer feedback
+ */
+export const GetFeedbackResponseItem = zod.object({
+  "id": zod.number(),
+  "name": zod.string(),
+  "location": zod.string().nullish(),
+  "rating": zod.number(),
+  "message": zod.string(),
+  "createdAt": zod.string()
+})
+export const GetFeedbackResponse = zod.array(GetFeedbackResponseItem)
+
+
+/**
+ * @summary Submit customer feedback
+ */
+
+export const submitFeedbackBodyRatingMax = 5;
+
+
+
+
+export const SubmitFeedbackBody = zod.object({
+  "name": zod.string().min(1),
+  "location": zod.string().nullish(),
+  "rating": zod.number().min(1).max(submitFeedbackBodyRatingMax),
+  "message": zod.string().min(1)
+})
+
+export const SubmitFeedbackResponse = zod.object({
+  "id": zod.number(),
+  "name": zod.string(),
+  "location": zod.string().nullish(),
+  "rating": zod.number(),
+  "message": zod.string(),
+  "createdAt": zod.string()
+})
 
 

@@ -52,3 +52,27 @@ export interface Project {
   imageUrl?: string | null;
 }
 
+export interface FeedbackInput {
+  /** @minLength 1 */
+  name: string;
+  /** @nullable */
+  location?: string | null;
+  /**
+     * @minimum 1
+     * @maximum 5
+     */
+  rating: number;
+  /** @minLength 1 */
+  message: string;
+}
+
+export interface FeedbackItem {
+  id: number;
+  name: string;
+  /** @nullable */
+  location?: string | null;
+  rating: number;
+  message: string;
+  createdAt: string;
+}
+

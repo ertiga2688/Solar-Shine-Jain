@@ -9,5 +9,7 @@
 export * from './contactInput';
 export * from './contactInputType';
 export * from './contactResponse';
+export * from './feedbackInput';
+export * from './feedbackItem';
 export * from './healthStatus';
 export * from './project';
