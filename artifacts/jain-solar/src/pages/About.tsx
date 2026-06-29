@@ -29,10 +29,6 @@ export default function About() {
               <div className="aspect-square rounded-2xl overflow-hidden shadow-2xl">
                 <img src="/src/assets/images/project-ind-1.png" alt="Our Team at Work" className="w-full h-full object-cover" />
               </div>
-              <div className="absolute -bottom-8 -right-8 bg-secondary p-8 rounded-2xl shadow-xl hidden md:block max-w-[250px]">
-                <div className="text-4xl font-bold text-secondary-foreground mb-2">15+</div>
-                <div className="text-secondary-foreground/90 font-medium">Years of Excellence in Technical Solutions</div>
-              </div>
             </div>
             
             <div>
