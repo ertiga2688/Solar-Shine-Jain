@@ -34,9 +34,11 @@ export default function Navbar() {
     >
       <div className="container mx-auto px-4 md:px-6 flex items-center justify-between">
         <Link href="/" className="flex items-center gap-3">
-          <div className="w-10 h-10 bg-primary text-secondary flex items-center justify-center rounded-lg font-bold text-xl shadow-sm border border-primary/20">
-            JC
-          </div>
+          <img
+            src="/jc-logo.jpg"
+            alt="Jain Communications Logo"
+            className="w-10 h-10 rounded-lg object-cover"
+          />
           <span className="font-bold text-xl text-primary hidden sm:block">
             Jain Communications
           </span>

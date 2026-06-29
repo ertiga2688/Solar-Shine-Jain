@@ -11,9 +11,11 @@ export default function Footer() {
           
           <div>
             <div className="flex items-center gap-3 mb-6">
-              <div className="w-10 h-10 bg-white text-primary flex items-center justify-center rounded-lg font-bold text-xl">
-                JC
-              </div>
+              <img
+                src="/jc-logo.jpg"
+                alt="Jain Communications Logo"
+                className="w-12 h-12 rounded-lg object-cover"
+              />
               <span className="font-bold text-xl">Jain Communications</span>
             </div>
             <p className="text-primary-foreground/80 mb-6 leading-relaxed">
