@@ -2,6 +2,7 @@ import { Router } from "express";
 import { db, feedbackTable } from "@workspace/db";
 import { SubmitFeedbackBody } from "@workspace/api-zod";
 import { desc } from "drizzle-orm";
+import { sendFeedbackNotification } from "../lib/mailer";
 
 const router = Router();
 
@@ -45,6 +46,9 @@ router.post("/feedback", async (req, res) => {
     message: inserted.message,
     createdAt: inserted.createdAt.toISOString(),
   });
+
+  // Send email notification (non-blocking — don't await so response is instant)
+  sendFeedbackNotification({ name, location, rating, message }).catch(() => {});
 });
 
 export default router;
