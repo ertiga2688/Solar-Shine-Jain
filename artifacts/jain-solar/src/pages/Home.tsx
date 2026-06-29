@@ -27,9 +27,9 @@ export default function Home() {
         <div className="absolute inset-0 z-0">
           <div className="absolute inset-0 bg-gradient-to-br from-primary via-[#1a3250] to-[#0f1f33] opacity-90 z-10" />
           <img
-            src="/src/assets/images/project-res-1.png"
-            alt="Rooftop Solar Installation"
-            className="w-full h-full object-cover"
+            src="/hero-solar.jpg"
+            alt="Rooftop Solar Installation by Jain Communications"
+            className="w-full h-full object-cover object-center"
           />
         </div>
 
