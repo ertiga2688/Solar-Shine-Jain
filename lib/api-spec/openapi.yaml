@@ -1,15 +1,18 @@
 openapi: 3.1.0
 info:
-  # Do not change the title, if the title changes, the import paths will be broken
   title: Api
   version: 0.1.0
-  description: API specification
+  description: API specification for Jain Communications Solar Website
 servers:
   - url: /api
     description: Base API path
 tags:
   - name: health
     description: Health operations
+  - name: contact
+    description: Contact and inquiry operations
+  - name: projects
+    description: Solar project showcase
 paths:
   /healthz:
     get:
@@ -24,6 +27,43 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/HealthStatus"
+
+  /contact:
+    post:
+      operationId: submitContact
+      tags: [contact]
+      summary: Submit a contact or site survey inquiry
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ContactInput"
+      responses:
+        "201":
+          description: Inquiry submitted successfully
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ContactResponse"
+        "400":
+          description: Validation error
+
+  /projects:
+    get:
+      operationId: getProjects
+      tags: [projects]
+      summary: Get all solar installation projects
+      responses:
+        "200":
+          description: List of projects
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Project"
+
 components:
   schemas:
     HealthStatus:
@@ -34,3 +74,55 @@ components:
       required:
         - status
 
+    ContactInput:
+      type: object
+      required: [name, phone, message, type]
+      properties:
+        name:
+          type: string
+          minLength: 1
+        phone:
+          type: string
+          minLength: 10
+        email:
+          type: ["string", "null"]
+        address:
+          type: ["string", "null"]
+        message:
+          type: string
+          minLength: 1
+        type:
+          type: string
+          enum: [general, survey, subsidy]
+        monthlyBill:
+          type: ["number", "null"]
+
+    ContactResponse:
+      type: object
+      required: [id, message]
+      properties:
+        id:
+          type: integer
+        message:
+          type: string
+
+    Project:
+      type: object
+      required: [id, title, location, capacity, type, year]
+      properties:
+        id:
+          type: integer
+        title:
+          type: string
+        location:
+          type: string
+        capacity:
+          type: string
+        type:
+          type: string
+        year:
+          type: integer
+        savings:
+          type: ["string", "null"]
+        imageUrl:
+          type: ["string", "null"]

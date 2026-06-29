@@ -1,0 +1,38 @@
+uploads = []
+outputs = []
+
+[[generated]]
+id = "2GXcXZkLArf13zh6XYjbX"
+uri = "file://artifacts/jain-solar/src/assets/images/project-res-1.png"
+type = "image"
+title = "Residential rooftop solar panel installation"
+
+[[generated]]
+id = "dX0YxFYLM2Su1OS9RibRG"
+uri = "file://artifacts/jain-solar/src/assets/images/project-com-1.png"
+type = "image"
+title = "Commercial building solar array"
+
+[[generated]]
+id = "sBD6VjUwvQlHUlmNavEsu"
+uri = "file://artifacts/jain-solar/src/assets/images/project-ind-1.png"
+type = "image"
+title = "Industrial solar power plant"
+
+[[generated]]
+id = "o4JRcd8QY_qIhK1RDQUmj"
+uri = "file://artifacts/jain-solar/src/assets/images/project-res-2.png"
+type = "image"
+title = "Residential solar home side view"
+
+[[generated]]
+id = "XocpVGBoeZX0X2GLkzv3E"
+uri = "file://artifacts/jain-solar/src/assets/images/project-com-2.png"
+type = "image"
+title = "Large commercial solar installation"
+
+[[generated]]
+id = "ySzmkNVYCesvhDp7CSl_k"
+uri = "file://artifacts/jain-solar/src/assets/images/project-res-3.png"
+type = "image"
+title = "Residential rooftop solar panels"
